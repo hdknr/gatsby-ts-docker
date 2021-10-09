@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 
 type Props = PageProps<GatsbyTypes.BlogIndexQuery>
 
-const BlogIndex: React.FC<Props> = ({ data, location }) => {
+const BlogIndex = ({ data, location }: Props) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -70,20 +70,20 @@ export default BlogIndex
 export const pageQuery = graphql`
   query BlogIndex{
     site {
-    siteMetadata {
-    title
-  }
+      siteMetadata {
+        title
+      }
     }
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC }) {
-    nodes {
-    excerpt
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        excerpt
         fields {
-    slug
-  }
-  frontmatter {
-    date(formatString: "MMMM DD, YYYY")
-  title
-  description
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
         }
       }
     }
