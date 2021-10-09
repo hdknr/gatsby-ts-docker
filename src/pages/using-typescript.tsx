@@ -1,5 +1,5 @@
 // If you don't want to use TypeScript you can delete this file!
-import * as React from "react"
+import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -11,11 +11,9 @@ type DataProps = {
   }
 }
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({
-  data,
-  path,
-  location,
-}) => (
+type Props = PageProps<DataProps>
+
+const UsingTypescript = ({ data, path, location, }: Props) => (
   <Layout title="Using TypeScript" location={location}>
     <Seo title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>
