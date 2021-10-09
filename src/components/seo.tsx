@@ -19,19 +19,18 @@ type Props = {
 
 
 const Seo = ({ description, lang, meta, title }: Props) => {
-  const { site } = useStaticQuery(
-    graphql`
-  query {
-    site {
-    siteMetadata {
-    title
-            description
-  social {
-    twitter
-  }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          social {
+            twitter
           }
         }
       }
+    }
   `
   )
 
