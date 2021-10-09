@@ -1,4 +1,4 @@
-import type { GatsbyNode, Actions } from 'gatsby'
+import { GatsbyNode, Actions } from 'gatsby'
 import { resolve } from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 
@@ -6,12 +6,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
   const { createPage } = actions
 
   // Define a template for blog post
-  const blogPost = resolve(`./src/templates/blog-post.js`)
+  const blogPost = resolve(`./src/templates/blog-post.tsx`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql<{ allMarkdownRemark: GatsbyTypes.Query["allMarkdownRemark"] }>(
     `
-      {
+      query AllBlog {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
