@@ -4,7 +4,10 @@ import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const NotFoundPage: React.FC<PageProps<GatsbyTypes.Page404Query>> = ({ data, location }) => {
+type Props = PageProps<GatsbyTypes.Page404Query>
+
+
+const NotFoundPage = ({ data, location }: Props) => {
   const siteTitle = data.site!.siteMetadata!.title!
 
   return (
